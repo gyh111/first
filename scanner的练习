@@ -1,0 +1,29 @@
+package dist;
+
+import java.util.Scanner;
+
+public class dist1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/**Scanner ac =  new Scanner(System.in);
+		System.out.println("请输入出生年:");
+		int  year = ac.nextInt();
+		System.out.println("得到的数据："+year);
+		 System.out.println("----------------------------------");
+		System.out.println("请输入你的账户余额:");
+		double money = ac.nextDouble();
+		System.out.println("得到的数据："+money);
+	*/
+		int before = 20;
+		double rise = 9.8;
+		double now =  before + rise;
+		System.out.println(now);
+		
+		int xc = 30;
+		int wc= 40;
+		int  our = xc * wc;
+		System.out.println(our);
+	}
+
+}
