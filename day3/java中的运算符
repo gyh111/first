@@ -1,0 +1,306 @@
+一、java中的运算符
+
+           理解如下的几个概念：
+           
+             1、运算符：其实就是数学上所学习到了的那些 +  -  *  /    ........
+             
+             2、操作数：就是运算符左右两边的数值或者是变量。  比如： int  a = 1;    a +  10 ;   a 和  10都属于操作数。
+             
+             3、表达式：就是由 运算符和 操作数 所构成的一个序列。  a     a+b    a+b/c  
+             
+             
+             1)、赋值运算符： = 
+             
+             2)、算术运算符：+ - * / % ++ --
+             
+             3)、复合算术运算符： +=  -=  *=  /=  %=
+             
+             4)、比较运算符： ==   !=    >   <     >=   <=   。最终的结果一定是boolean类型
+             
+             5)、逻辑运算符：  &&   ||   ！
+             
+             6)、三目运算符：  
+             
+                   表达式1?表达式2:表达式3;
+                   
+                   如果表达式1的结果为true，则执行表达式2；
+                   如果表达式1的结果为false，则执行表达式3；
+
+二、Java中的关键字
+
+       定义：在Java平台内部已经被收录了的一些单词。表示某种特殊的含义。这些单词被称为“关键字”。
+       注意：关键字的特点：都是小写的。比如：class 、public 、static、void 、int 、short 、 byte .......
+三、运算符
+    package com.it.www.test;
+
+public class Demo9 {
+	
+	public static void main(String[] args) {
+		
+		// = 赋值运算符:表示将右边的值或者变量，赋值给左侧的变量。
+		int  a = 1;
+		int  b  = a;
+		
+		//算术运算符:  +  -  *   /   %   ++  --
+		
+		int  r1 = 10%3;  //求模，取余数.
+		
+		// ++ 
+		//int  x = 10;
+		//int y = x++;  //  y = 10
+		//int y = ++x; // y = 11
+		
+		/**
+		 *  ++内部原理:
+		 *  
+		 *    首先 ++ 或 --  可以有如下的两种用法：
+		 *    
+		 *    x++  或 ++x
+		 *    
+		 *    x++:表示的是首先带入自身的值参与运算，在运算结束后，进行自身+1的操作。
+		 *    
+		 *    ++x：表示的是首先将自身的值+1，再带入运算。
+		 */
+		
+		int  x = 3;
+		int  y = 5;
+		//   x++ + y-- +x+++y+x-- -y
+		// 14
+		// 17
+		// 13
+		System.out.println(x++ + y-- +x+++y+x-- -y);
+		//  x++ + y-- +x+++y+x-- -y
+		   // 4    4 
+		   // 3+5+4 +5 
+		
+		
+		
+		//=============================附加===================================
+		
+		int   a1 = 10;
+		//double  result =  a1/0;   //程序会抛出一个异常：java.lang.ArithmeticException  除数为0了。
+		
+		//注意：所有的浮点型表示的都是一个近似值（0.0 不等价于  整数的 0 ）
+		
+		double  result1 = a1/0.0;  //  结果为：Infinity  正无穷
+		
+		double  result2 = -a1/0.0;  //  -Infinity  负无穷
+		
+		double  result = result1 + result2;
+		
+		System.out.println(result);   // NaN  非数值
+		//=============================附加===================================
+		
+		//复合算术运算符 ：  +=、-=、*=、/=、%=
+		
+		// a+=b;     所运算的结果等价于    a = a+b;
+		//但是本质上是不等价的。
+	/*	int  aa = 10;
+		int  bb = 30;
+		aa+=bb;  // aa = aa+bb;
+		System.out.println(aa);*/
+		
+	/*	byte  aa = 10;
+		
+		aa+=200;   //  aa = aa +200;
+		
+		// aa = (byte) (aa +200);
+		
+		System.out.println(aa);*/
+		
+		//short  i = 1;  int  j = 2;     i+=j    i=i+j
+		
+		
+	}
+
+}
+四、求会员卡号及各位数和
+ package com.it.www.test;
+
+import java.util.Scanner;
+
+public class Demo10 {
+
+	public static void main(String[] args) {
+		
+		  //第一个小功能点:输入一个任意的4位数的卡号,并进行显示
+		  Scanner   sc = new  Scanner(System.in);
+		  //进行提示
+		  System.out.println("请输入您的卡号:");
+		  //接收输入的卡号(整数类型的值)
+		  int  cardNo = sc.nextInt();
+		  //显示
+		  System.out.println("会员卡号是:"+cardNo);
+		  
+		  
+		  //第二个小功能点：将这个4位数进行拆分，分别提取千位、百位.....数值。
+		  //  cardNo -----    8372
+		  int   qianwei = cardNo/1000;
+		  System.out.println("千位是："+qianwei);
+		  
+		  int  baiwei = cardNo%1000/100;
+		  System.out.println("百位是："+baiwei);
+		  
+		  int  shiwei = cardNo%100/10;
+		  System.out.println("十位是:"+shiwei);
+		  
+		  int  gewei = cardNo%10;
+		  System.out.println("个位是:"+gewei);
+		 
+		  //4个数求和
+		   
+
+	}
+
+}
+五、逻辑运算符
+   package com.it.www.test;
+
+public class Demo11 {
+	
+	public static void main(String[] args) {
+		
+		// == 等号:判断左右是否一致。
+		System.out.println(1==1); //true
+		boolean is = 1==1;
+		System.out.println(is);
+		System.out.println(true==true);
+		
+		//System.out.println("admin"=="admin");  //true。
+		
+		
+		
+		//逻辑运算符
+		
+		//&&只要有一个为false，整个表达式的结果就为 false。
+		boolean  myIs = true&&true&&true&&false;
+		
+		//
+		myIs = (1>2)&&true&&(5>5);  //false
+		//           false&&true&&false
+		//在程序执行的过程中，遇到第一个false的时候，就会给出整个表达式的结果。后面全部忽略。
+		
+		System.out.println(myIs);  
+		//   ||逻辑 或 ：表达的意思是只要有一个为true，则整个表达式的结果为true。
+		//   工作原理也是基于短路模式，遇到第一个true的时候，就直接确定结果。忽略后续的操作。
+		
+		
+		//  ! 逻辑反   
+		System.out.println(!true);
+		
+		System.out.println(!(1>10));
+		
+	}
+
+}
+六、三目运算符
+    package com.it.www.test;
+
+public class Demo12 {
+	
+	public static void main(String[] args) {
+
+
+		int  x = 5;
+		
+		//需求：x的值如果<10，则在前面添加一个0。  1---01   10----10
+		System.out.println(x<10?"0"+x:x);
+		
+		//String  r = x<10?"0"+x:""+x;
+		
+	/*	Object  r = x<10?"0"+x:x;
+		System.out.println(r);
+		*/
+		
+		char   a = 97;
+		System.out.println(false?a:98);
+		
+	}
+
+}
+七、个人笔记
+    package com.it.www.test;
+
+import java.util.Scanner;
+
+
+
+public class mlxg {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	 //定义一个扫描器
+	 Scanner ak = new Scanner (System.in);
+	 /**
+	 System.out.println("请输入你的名字");
+	 String name = ak.next();
+	 System.out.println("你的名字是:"+name);
+	 
+	 System.out.println("===================================");
+	 
+	 //收集一个人员的信息
+	 
+	 //定义的变量，用于接受输入的信息
+	 String  name1;
+	 
+	 char  sex;
+	 
+	 int age;
+	 
+	  float height;
+	  
+	  boolean marry;
+	  
+	  //提示
+	  
+	  System.out.println("请输入您的姓名");
+	  name1 = ak.next();
+	  
+	  System.out.println("请输入您的性别");
+	  sex = ak.next().charAt(0);
+	  
+	  System.out.println("请输入您的年龄");
+	  age = ak.nextInt();
+	  
+	  System.out.println("请输入您的身高");
+	  height = ak.nextFloat();
+	  
+	  System.out.println("请输入婚否");
+	  marry = ak.nextBoolean();
+	  
+	  
+	  //统一一次打印信息
+	  
+	  System.out.println("姓名:"+name1+"\t性别"+sex+"\t年龄"+age +"\t身高"+height+"\t婚否"+marry);
+	  */
+//	  int x = 3;
+//	  int y = 5;
+//	  System.out.println(x++ + y-- +x+++y+x-- -y);
+//	  
+//	  //=========附加===============
+//	  
+//	  int  a1 = 10;
+//	  double result1 = -a1/0.0;
+//	  double result2 = a1/0.0;
+//	  System.out.println(result1+result2); 
+//	  
+	 
+	 
+	 System.out.println("请输入4位会员卡号:");
+	 int num = ak.nextInt();
+	 System.out.print("会员卡号是:"+num);
+	 int pdd = num/1000+(num/100)%10+(num/10)%10+num%10;
+	 System.out.print("\n千位数:"+num/1000+"\t");
+	 System.out.print("百位数:"+(num/100)%10+"\t");
+	 System.out.print("十位数:"+(num/10)%10+"\t");
+	 System.out.print("个位数:"+num%10+"\t");
+	 System.out.print("\n会员卡号各位之和:"+ pdd);
+	 
+	
+	 //Object  q = pdd>20?"中奖":"没中奖"  
+	 //object为什么不用管数据类型
+	 //可以这样理解，Object类在java中是至高无上的，相当于java的中上帝，
+     //	 任何其他的类都是他的子民。Object o 这样定义
+     //	 ，这个o自然可以是任何类型，之所以这样声明，
+     //	 无疑是为了满足java的面向对象的思想，同时增加了语言的可扩展性。 
+	 System.out.println(pdd>20?"\n会员卡号是"+num+"的会员,这个比中奖了!奖品是MP3!":"谢谢光临");
