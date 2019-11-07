@@ -1,0 +1,5 @@
+导入未写完的java代码到eclipse并解决出现红色感叹的问题
+点击File-->Import-->选择General-->Existing Projects into Workspace
+---->点击Next--->输入你的代码地址————>Finish--->对加入的代码文件右击
+----->Build Path---->Configure Build Path------>点击Libraries
+------>双击出来的选项----->选择你安装的JDK版本----->apply------>finish
