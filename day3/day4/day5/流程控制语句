@@ -1,0 +1,287 @@
+=======================第三章（流程控制语句）======================
+
+特点：语法比较简单，但是完成功能比较麻烦（思维模式）。------ 耐心+坚持
+
+
+一、什么是流程控制语句？
+
+       就是程序不再是自上而下的顺次执行，在执行的过程中可能会存在一些选择，重复等。
+       
+二、程序中的三大结构？
+
+        顺序结构
+        
+        选择结构
+        
+        循环结构    
+        
+三、选择结构？
+     
+
+       1、if语句系列
+       
+             1.1、基本的if语句的使用？
+             注意：如果if语句中只有一条执行语句的情况下，是可以省略{}部分的。但是不推荐。因为这样结构不是很清晰。
+             
+             语法格式：
+             
+                if（表达式1）{
+                     语句1;
+                     语句2;
+                        .........
+                }
+                
+              含义：if后面的表达式的结果为真（true），就执行{}中的语句部分。
+                           如果为假(false),就跳过这部分的语句。
+             
+             
+             1.2、if-else 语句的使用？
+             
+              语法格式：
+              
+                if(表达式1){
+                    语句1;
+                }else{
+                    语句2;
+                }
+                
+             含义：如果表达式1的结果为true，则执行语句1部分。否则就执行语句2部分。
+             
+             
+           小练习:任意输入三个整数，求出其中的最大值？  
+           
+           1.3、if-else的嵌套语句的使用？
+           
+             语法格式：
+             
+               if(表达式1){
+               
+                   if(表达式2){
+                   
+                   }else{
+                       
+                   }
+                   
+               }else{
+               
+                  if(表达式2){
+                   
+                   }else{
+                       
+                   }
+               }
+           
+           含义：就是在if-else语句的内部进行if-else的嵌套，可以一级一级的进行嵌套。处理比较复杂的情况。
+          
+          1.4、if-else if 语句的使用?
+            
+            语法格式：
+            
+                 if(score>=90&&score<=100){
+				      System.out.println("优秀");
+				 }else if(score>=80&&score<90){
+					 System.out.println("良好");
+				 }else if(score>=70&&score<80){
+					 System.out.println("中等");
+				 }else if(score>=60&&score<70){
+					 System.out.println("及格");
+				 }else{
+					 System.out.println("差");
+				 }
+          
+           注意：if-else if  是基于短路版的模式，性能会比并列的if语句高。
+           
+       
+       2、switch语句
+       
+           语法格式：
+             
+             switch（表达式）{
+                
+                   case 值1:
+                      语句1;
+                      break;
+                      
+                   case 值2:
+                      语句2;
+                      break;  
+                      
+                   case 值3:
+                      语句3;
+                      break;  
+                      
+                   ..............
+                   
+                   [default:]
+                   
+                     语句;
+                     break;    
+             
+             }
+            
+   * String类中的一个方法：equals()方法
+
+ 字符串String中的equals()方法，实现的是字符串中的内容的比较。
+ 
+public class IfTest6 {
+	
+	public static void main(String[] args) {
+		
+		     Scanner  sc = new  Scanner(System.in);
+		     
+		     System.out.println("请输入您的性别:");
+		     
+		     //sex中的值： "男"  或  "女"
+		     String  sex = sc.next();
+		     
+		     if(sex.equals("男")){
+		    	 System.out.println("这位是男性!");
+		     }else{
+		    	 System.out.println("这位是女性!");
+		     }
+		     
+		     /**
+		      * 结论：针对字符串进行内容的对比时，使用的是String类中的一个叫 equals()的方法来实现的。
+		      */
+ ==========================================================================================================================         
+    Math类中的random()方法的使用。
+ * 
+ * Math类：主要是用于处理数学运算的。
+ *
+ */
+public class IfTest7 {
+	
+	public static void main(String[] args) {
+		
+		   //如何使用Math类中的random()的方法产生随机数
+		
+		   System.out.println(Math.random());
+		   
+		   //Math.random()方法所产生的数值我们也是无法预估的。但是是有一个固定的范围的。
+		   //这个范围是：[0.0,1.0)  是一个double类型
+
+		   double  r = Math.random();
+		   System.out.println(r);
+		   
+		   
+		   System.out.println(Math.random()*10);  //  [0.0 , 10.0)
+		   
+		   //所有的浮点型 ，强制转换为 int类型的时候，是直接将小数部分舍弃。
+		   
+		
+		
+	}
+}       
+		               
+================================================================================================================
+
+switch-case语句的使用
+ * 
+ *
+ */
+public class IfTest8 {
+	
+	public static void main(String[] args) {
+		
+		int  x = 13;
+		
+		//定义一个switch语句
+		switch (x) {
+		
+		case 1:
+			System.out.println("数字是：1");
+			break;
+		case 2:
+			System.out.println("数字是：2");
+			break;
+		case 3:
+			System.out.println("数字是：3");
+			break;  //跳出-----跳出的是整个switch的语句体部分
+		case 4:
+			System.out.println("数字是：4");
+			break;
+		case 5:
+			System.out.println("数字是：5");
+			break; 
+		default:   //缺省 或  默认  的意思。
+			System.out.println("我也不知道是多少?");
+			break;
+		}
+		
+		System.out.println("程序结束!");
+		
+		
+		/**
+		 * 通过上面的程序的执行，我们观察到：
+		 * 1、swtich后面的表达式和哪个case匹配上了，我们就执行哪个case里面的语句（语句可以有多条）。
+		 * 2、如果表达式的值和所有的case都不匹配的话，那么直接去执行default下的语句。
+		 */
+		
+	}
+}
+=====================================================================================================================
+使用switch-case语句的一些注意事项（特点）
+ * 
+ * 1、case后面的值，必须是唯一性的，而且只能是常量值，不能是定义的变量或常量，且不能重复。
+ * 
+ * 2、switch后面的表达式可以是哪些类型的数据。
+ * 
+ *             a、整数系列：byte 、 short 、 int 可以支持     。long类型不能支持。
+ *             
+ *             b、字符型：char 可以支持的。
+ *             
+ *             c、枚举类型：是可以支持的（后续学习了枚举类型可以来进行测试）
+ *             
+ *             d、String字符串类型也是可以支持的。是在Jdk1.8中才加入的新特性，以前是不支持的。
+ * 
+ * 3、每一个case语句中，都可以有一个break；表示跳出当前这个switch语句体。但是在某些情况也是可以进行省略的。
+ *       如果省略了break语句。则表示由当前的case进入，直到遇到break为止，才会跳出。如果一直都没有出现break，那么将
+ *       整个switch的语句全部执行完毕（包括default部分）。这种现象我们也称为“case的穿透”。
+ *       
+ *       最终的效果就是，以一个case进行了匹配，而执行的是一批操作。
+ 
+==================================== ==========================================================================
+ //case name:  (错误的)  此处是无法使用name这个变量来进行表示的。
+ 	//break;  //跳出-----跳出的是整个switch的语句体部分
+  ===================================================================================================================
+   switch语句的运用案例
+public class IfTest10 {
+	
+	public static void main(String[] args) {
+		
+		//题目：将100---90  优秀     89----80  良好    79---70 中等    69-----60 及格   60以下的  ：差
+		//要求：使用switch-case语句完成？
+		
+		Scanner    input = new  Scanner(System.in);
+		
+		System.out.println("录入您的成绩:");
+		
+		int  score = input.nextInt();
+		int  v = score/10;             //(10---9)  优秀
+		
+		//0----100 整数
+		switch(v){
+		//使用了case的穿透
+		case 10:
+		case  9:
+			System.out.println("优秀");
+			break;
+		case 8:
+			System.out.println("良好");
+			break;
+		case 7:
+			System.out.println("中等");
+			break;
+		case 6:
+			System.out.println("及格");
+			break;
+		default:
+			System.out.println("差");
+			break;
+		}
+		
+		
+	}
+	
+
+}
